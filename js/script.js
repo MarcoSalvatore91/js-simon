@@ -20,7 +20,32 @@ const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)
 
 // Generare 5 numeri casuali e mostrarli in un alert all'utente.
 
+const randomNumber = [];
+
 for (let i = 0; i <= 4; i++) {
-    const randomNumber = getRandomNumber(1, 100);
-    console.log(randomNumber)
+    const number = getRandomNumber(1, 100);
+    randomNumber.push(number);
 }
+
+alert(randomNumber);
+
+/* Dopo 30 secondi l'utente deve inserire,
+uno alla volta, i numeri che ha visto precedentemente, tramite prompt().*/
+
+const userNumber = [];
+
+const rememberNumber = setTimeout (() => {
+    for(i = 0; i <= 4; i++) {
+        const askNumber = parseInt(prompt('Inserisci i numeri visualizzati!'));
+        userNumber.push(askNumber);
+    }
+}, 3000);
+
+/* Dopo che sono stati inseriti i 5 numeri,
+il software dice quanti e quali dei numeri  sono stati indovinati dall'utente.*/
+
+setTimeout(() => {
+    if(randomNumber === userNumber){
+        alert()
+    }
+  }, 1000);
