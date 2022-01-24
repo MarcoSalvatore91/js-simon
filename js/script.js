@@ -33,19 +33,25 @@ alert(randomNumber);
 uno alla volta, i numeri che ha visto precedentemente, tramite prompt().*/
 
 const userNumber = [];
+const result = [];
 
 const rememberNumber = setTimeout (() => {
-    for(i = 0; i <= 4; i++) {
+    for(i = 0; i <= randomNumber.length; i++) {
         const askNumber = parseInt(prompt('Inserisci i numeri visualizzati!'));
         userNumber.push(askNumber);
+        if(userNumber[i] === randomNumber[i]){
+            result.push(randomNumber[i]);
+        }
     }
-}, 3000);
+    alert(`I numeri corrispondenti sono ${result}`)
+}, 2000);
+
 
 /* Dopo che sono stati inseriti i 5 numeri,
 il software dice quanti e quali dei numeri  sono stati indovinati dall'utente.*/
 
-setTimeout(() => {
+/* setTimeout(() => {
     if(randomNumber === userNumber){
-        alert()
+        alert('i numeri')
     }
-  }, 1000);
+  }, 1000); */
