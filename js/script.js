@@ -9,3 +9,18 @@ Bonus:
 controllare che i numeri casuali siano diversi tra loro
 controllare che l'utente non inserisca 2 volte lo stesso numero
 */
+
+// Creare delle constanti
+
+
+
+// # FUNZIONI
+
+const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+// Generare 5 numeri casuali e mostrarli in un alert all'utente.
+
+for (let i = 0; i <= 4; i++) {
+    const randomNumber = getRandomNumber(1, 100);
+    console.log(randomNumber)
+}
