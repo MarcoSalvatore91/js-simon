@@ -20,16 +20,16 @@ const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)
 
 // Generare 5 numeri casuali e mostrarli in un alert all'utente.
 
-const randomNumber = [];
+const randomNumbers = [];
 
-while (randomNumber.length <= 4) {
+while (randomNumbers.length <= 4) {
     const number = getRandomNumber(1, 100);
-if (!randomNumber.includes(number)){
-    randomNumber.push(number);
+if (!randomNumbers.includes(number)){
+    randomNumbers.push(number);
 }
 }
 
-alert(randomNumber);
+alert(randomNumbers);
 
 /* Dopo 30 secondi l'utente deve inserire,
 uno alla volta, i numeri che ha visto precedentemente, tramite prompt().*/
@@ -40,22 +40,27 @@ const result = [];
 const rememberNumber = setTimeout (() => {
     while (userNumber.length <= 4) {
         const askNumber = parseInt(prompt('Inserisci i numeri visualizzati!'));
-        if (!userNumber.includes(askNumber) || !isNaN(askNumber)) {
-            userNumber.push(askNumber);
-        } else if(userNumber[i] === randomNumber[i]){
-            result.push(randomNumber[i]);
-        } /* else {
+        if (isNaN(askNumber) || userNumber.includes(askNumber)) {
             alert('I numeri inseriti non sono validi o già utilizzati!!!')
-        }  */
+        } else {
+            userNumber.push(askNumber);
+        } 
+    } 
+    for (let i = 0; i <= randomNumbers.length; i++) {
+        if (userNumber.includes(randomNumbers[i])) {
+            result.push(randomNumbers[i]);
+        }
     }
+    console.log(result);
 
     /* Dopo che sono stati inseriti i 5 numeri,
     il software dice quanti e quali dei numeri  sono stati indovinati dall'utente.*/
 
-    if (result > 0) {
+    if (result > [0]) {
         alert(`I numeri corrispondenti sono ${result}`)
     } else {
         alert(`Non sei riuscito/a ad indovinare nessun numero! Peccato!!!`)
     }
     
-}, 2000);
+}, /* 2000 */);
+
