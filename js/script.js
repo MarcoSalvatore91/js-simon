@@ -22,9 +22,11 @@ const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)
 
 const randomNumber = [];
 
-for (let i = 0; i <= 4; i++) {
+while (randomNumber.length <= 4) {
     const number = getRandomNumber(1, 100);
+if (!randomNumber.includes(number)){
     randomNumber.push(number);
+}
 }
 
 alert(randomNumber);
@@ -36,22 +38,24 @@ const userNumber = [];
 const result = [];
 
 const rememberNumber = setTimeout (() => {
-    for(i = 0; i <= randomNumber.length; i++) {
+    while (userNumber.length <= 4) {
         const askNumber = parseInt(prompt('Inserisci i numeri visualizzati!'));
-        userNumber.push(askNumber);
-        if(userNumber[i] === randomNumber[i]){
+        if (!userNumber.includes(askNumber) || !isNaN(askNumber)) {
+            userNumber.push(askNumber);
+        } else if(userNumber[i] === randomNumber[i]){
             result.push(randomNumber[i]);
-        }
+        } /* else {
+            alert('I numeri inseriti non sono validi o già utilizzati!!!')
+        }  */
     }
-    alert(`I numeri corrispondenti sono ${result}`)
+
+    /* Dopo che sono stati inseriti i 5 numeri,
+    il software dice quanti e quali dei numeri  sono stati indovinati dall'utente.*/
+
+    if (result > 0) {
+        alert(`I numeri corrispondenti sono ${result}`)
+    } else {
+        alert(`Non sei riuscito/a ad indovinare nessun numero! Peccato!!!`)
+    }
+    
 }, 2000);
-
-
-/* Dopo che sono stati inseriti i 5 numeri,
-il software dice quanti e quali dei numeri  sono stati indovinati dall'utente.*/
-
-/* setTimeout(() => {
-    if(randomNumber === userNumber){
-        alert('i numeri')
-    }
-  }, 1000); */
